@@ -1,26 +1,62 @@
 $(function(){
 
-var numberToNumeral = function(input){
-  var lastNumber = input.charAt(input.length -1);
-  lastNumber = lastNumber.replace("1","I");
-  lastNumber = lastNumber.replace("2","II");
-  lastNumber = lastNumber.replace("3","III");
-  lastNumber = lastNumber.replace("4","IV");
-  lastNumber = lastNumber.replace("5","V");
-  lastNumber = lastNumber.replace("6","VI");
-  lastNumber = lastNumber.replace("7","VII");
-  lastNumber = lastNumber.replace("8","VIII");
-  lastNumber = lastNumber.replace("9","IX");
-  lastNumber = lastNumber.replace("0","");
-  var restOfNumber = input.substring(0,(input.length-1));
-  var finalNumber = restOfNumber + lastNumber;
-  return finalNumber;
+var numberToNumeralOnes = function(input){
+  //Variables
+  var ones ="";
+  var tens ="";
+  var hundreds ="";
+  var thousands ="";
+
+  //Ones spot
+  var ones = input.charAt(input.length -1);
+  ones = ones.replace("1","I");
+  ones = ones.replace("2","II");
+  ones = ones.replace("3","III");
+  ones = ones.replace("4","IV");
+  ones = ones.replace("5","V");
+  ones = ones.replace("6","VI");
+  ones = ones.replace("7","VII");
+  ones = ones.replace("8","VIII");
+  ones = ones.replace("9","IX");
+  ones = ones.replace("0","");
+
+  //For Tens
+  if (input.length > 1) {
+    var tens = input.charAt(input.length -2);
+    tens = tens.replace("1","I");
+    tens = tens.replace("2","II");
+    tens = tens.replace("3","III");
+    tens = tens.replace("4","IV");
+    tens = tens.replace("5","V");
+    tens = tens.replace("6","VI");
+    tens = tens.replace("7","VII");
+    tens = tens.replace("8","VIII");
+    tens = tens.replace("9","IX");
+    tens = tens.replace("0","");
+  }
+
+  //For hundreds
+  if (input.length > 2) {
+    var tens = input.charAt(input.length -3);
+    tens = tens.replace("1","I");
+    tens = tens.replace("2","II");
+    tens = tens.replace("3","III");
+    tens = tens.replace("4","IV");
+    tens = tens.replace("5","V");
+    tens = tens.replace("6","VI");
+    tens = tens.replace("7","VII");
+    tens = tens.replace("8","VIII");
+    tens = tens.replace("9","IX");
+    tens = tens.replace("0","");
+  }
+
+
+  return thousands + hundreds + tens + ones;
 }
 
 
-
 var changeToRomanNumeral = function (input){
-  input = numberToNumeral(input);
+  input = numberToNumeralOnes(input);
   return input;
 }
 
@@ -34,5 +70,3 @@ var changeToRomanNumeral = function (input){
     event.preventDefault();
   });
 });
-
-var letter = ['I', '']
